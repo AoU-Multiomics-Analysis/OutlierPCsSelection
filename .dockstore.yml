@@ -1,4 +1,8 @@
 version: 1.2
 workflows:
   - subclass: WDL 
-    primaryDescriptorPath: <Path> 
+    primaryDescriptorPath: /workflows/FilterRareVariants.wdl
+    name: FilterRareVariants
+  - subclass: WDL 
+    primaryDescriptorPath: /workflows/CallZscoresAcrossPCs.wdl
+    name: CallZscoresAcrossPCs

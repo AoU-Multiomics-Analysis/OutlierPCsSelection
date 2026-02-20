@@ -39,7 +39,7 @@ message('Computing z scores across PCs')
 ZscoreList <- ZScores_Kgrid(Rotated, 
                              BetaPCs,
                              SamplesByGenes, 
-                             K_grid = seq(0,8900,by = 500), 
+                             K_grid = PC_list, 
                              gene_block = 2000
                             )
 ZscoreList %>% saveRDS('ZscoresAcrossPCs.rds')
