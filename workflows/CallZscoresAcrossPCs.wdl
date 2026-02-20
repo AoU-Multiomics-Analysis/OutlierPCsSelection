@@ -2,7 +2,8 @@ version 1.0
 
 task ComputeZscoresScript {
     input {
-        File GCTFile 
+        File GCTFile
+        Int Memory
     }
     command <<<
     Rscript /tmp/ComputeFitAcrossPCs.R --GCTFile ~{GCTFile}  
@@ -13,8 +14,8 @@ task ComputeZscoresScript {
     }
 
     runtime {
-        docker: "ghcr.io/aou-multiomics-analysis/twas:main"
-        preemptible: "~{NumPrempt}"
+        docker: "ghcr.io/aou-multiomics-analysis/OutlierPCsSelection:main"
+        preemptible: "1"
         cpu: "4"
         memory: "~{Memory} GB"
         disks: "local-disk 100 HDD"
@@ -26,11 +27,13 @@ task ComputeZscoresScript {
 workflow ComputeZscores {
     input {
         File GCTFile
+        Int Memory
     }
     
     call ComputeZscoresScript {
         input:
-            GCTFile = GCTFile
+            GCTFile = GCTFile,
+            Memory = Memory
     }
 
     output {
