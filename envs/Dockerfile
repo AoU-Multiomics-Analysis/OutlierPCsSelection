@@ -18,6 +18,6 @@ RUN micromamba install -y -n base -c conda-forge -c bioconda \
     bioconda::bioconductor-pcatools \
     bioconda::bioconductor-edger
 
-COPY workflows/utils/*  /opt/r/lib/ 
+COPY scripts/utils/*  /opt/r/lib/ 
 COPY scripts/*  . 
 
