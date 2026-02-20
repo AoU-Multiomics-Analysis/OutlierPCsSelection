@@ -14,6 +14,7 @@ RUN micromamba install -y -n base -c conda-forge -c bioconda \
     conda-forge::r-janitor \
     conda-forge::r-magrittr \
     conda-forge::r-arrow \
+    bioconda::bcftools \
     bioconda::bioconductor-pcatools \
     bioconda::bioconductor-edger
 
